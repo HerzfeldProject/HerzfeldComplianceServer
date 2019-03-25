@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='windows-1255'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="HerzfeldComplianceServer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="HerzfeldComplianceServer_Mediator_Global_QueryDrivenAPI" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

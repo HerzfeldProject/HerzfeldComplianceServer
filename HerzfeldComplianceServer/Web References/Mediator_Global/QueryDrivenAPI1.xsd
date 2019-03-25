@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/BusinessEntities.TAK" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BusinessEntities.TAK" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="KnowledgeInstance">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="DerivedFrom" nillable="true" type="q1:ArrayOflong" />
+      <xs:element name="_x003C_ConceptID_x003E_k__BackingField" type="xs:long" />
+      <xs:element name="_x003C_ConceptName_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_IsTemporal_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="_x003C_OutputAllowedValues_x003E_k__BackingField" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element name="_x003C_OutputType_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_ScaleMaxValue_x003E_k__BackingField" type="xs:double" />
+      <xs:element name="_x003C_ScaleMinValue_x003E_k__BackingField" type="xs:double" />
+      <xs:element name="_x003C_UnitType_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_conceptType_x003E_k__BackingField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KnowledgeInstance" nillable="true" type="tns:KnowledgeInstance" />
+  <xs:complexType name="OntologyTreeNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KI" nillable="true" type="tns:KnowledgeInstance" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sons" nillable="true" type="tns:ArrayOfOntologyTreeNode" />
+      <xs:element minOccurs="0" name="group" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isFolder" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OntologyTreeNode" nillable="true" type="tns:OntologyTreeNode" />
+  <xs:complexType name="ArrayOfOntologyTreeNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OntologyTreeNode" nillable="true" type="tns:OntologyTreeNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOntologyTreeNode" nillable="true" type="tns:ArrayOfOntologyTreeNode" />
+  <xs:complexType name="ArrayOfKnowledgeInstance">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KnowledgeInstance" nillable="true" type="tns:KnowledgeInstance" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKnowledgeInstance" nillable="true" type="tns:ArrayOfKnowledgeInstance" />
+</xs:schema>

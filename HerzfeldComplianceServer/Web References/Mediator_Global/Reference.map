@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?disco" filename="QueryDrivenAPI.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?xsd=xsd1" filename="QueryDrivenAPI.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?wsdl" filename="QueryDrivenAPI.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?xsd=xsd2" filename="QueryDrivenAPI0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?xsd=xsd4" filename="QueryDrivenAPI1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?xsd=xsd0" filename="QueryDrivenAPI2.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?xsd=xsd3" filename="QueryDrivenAPI3.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?xsd=xsd5" filename="QueryDrivenAPI4.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/BusinessEntities.Data" />
+  <xs:import schemaLocation="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/BusinessEntities.TAK" />
+  <xs:import schemaLocation="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/NachmanBE" />
+  <xs:element name="GetData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="projectId" type="xs:long" />
+        <xs:element minOccurs="0" name="patientIds" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="conceptId" type="xs:int" />
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="necessaryContexts" nillable="true" type="q1:ArrayOflong" />
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="exclusionContexts" nillable="true" type="q2:ArrayOflong" />
+        <xs:element minOccurs="0" name="contextFlag" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BusinessEntities.Data" minOccurs="0" name="GetDataResult" nillable="true" type="q3:ArrayOfDataInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllRawData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="projectId" type="xs:long" />
+        <xs:element minOccurs="0" name="entityId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllRawDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BusinessEntities.Data" minOccurs="0" name="GetAllRawDataResult" nillable="true" type="q4:ArrayOfDataInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKnowledgeItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="projectID" type="xs:long" />
+        <xs:element minOccurs="0" name="conceptID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKnowledgeItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BusinessEntities.TAK" minOccurs="0" name="GetKnowledgeItemResult" nillable="true" type="q5:KnowledgeInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOntologyTree">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="projectID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOntologyTreeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/BusinessEntities.TAK" minOccurs="0" name="GetOntologyTreeResult" nillable="true" type="q6:OntologyTreeNode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferenceConcepts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="projectID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferenceConceptsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/BusinessEntities.TAK" minOccurs="0" name="GetReferenceConceptsResult" nillable="true" type="q7:ArrayOfKnowledgeInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDemographicConcepts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="projectID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDemographicConceptsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/BusinessEntities.TAK" minOccurs="0" name="GetDemographicConceptsResult" nillable="true" type="q8:ArrayOfKnowledgeInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateKB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="projectID" type="xs:long" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="files" nillable="true" type="q9:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateKBResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateAbstractionsInBatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="projectID" type="xs:long" />
+        <xs:element minOccurs="0" name="entityIds" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="concepts" nillable="true" type="xs:string" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="necessaryContexts" nillable="true" type="q10:ArrayOflong" />
+        <xs:element minOccurs="0" name="contextFlag" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateAbstractionsInBatchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CalculateAbstractionsInBatchResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectPatients">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="projectID" type="xs:long" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/NachmanBE" minOccurs="0" name="query" nillable="true" type="q11:SelectPatientsQuery" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectPatientsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SelectPatientsResult" nillable="true" type="q12:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="QueryDrivenAPI" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/BusinessEntities.Data" />
+      <xsd:import schemaLocation="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/BusinessEntities.TAK" />
+      <xsd:import schemaLocation="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/NachmanBE" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IQueryDrivenAPI_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IQueryDrivenAPI_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueryDrivenAPI_GetAllRawData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRawData" />
+  </wsdl:message>
+  <wsdl:message name="IQueryDrivenAPI_GetAllRawData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRawDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueryDrivenAPI_GetKnowledgeItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKnowledgeItem" />
+  </wsdl:message>
+  <wsdl:message name="IQueryDrivenAPI_GetKnowledgeItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKnowledgeItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueryDrivenAPI_GetOntologyTree_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOntologyTree" />
+  </wsdl:message>
+  <wsdl:message name="IQueryDrivenAPI_GetOntologyTree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOntologyTreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueryDrivenAPI_GetReferenceConcepts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferenceConcepts" />
+  </wsdl:message>
+  <wsdl:message name="IQueryDrivenAPI_GetReferenceConcepts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferenceConceptsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueryDrivenAPI_GetDemographicConcepts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDemographicConcepts" />
+  </wsdl:message>
+  <wsdl:message name="IQueryDrivenAPI_GetDemographicConcepts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDemographicConceptsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueryDrivenAPI_UpdateKB_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateKB" />
+  </wsdl:message>
+  <wsdl:message name="IQueryDrivenAPI_UpdateKB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateKBResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueryDrivenAPI_CalculateAbstractionsInBatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateAbstractionsInBatch" />
+  </wsdl:message>
+  <wsdl:message name="IQueryDrivenAPI_CalculateAbstractionsInBatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateAbstractionsInBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueryDrivenAPI_SelectPatients_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectPatients" />
+  </wsdl:message>
+  <wsdl:message name="IQueryDrivenAPI_SelectPatients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectPatientsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IQueryDrivenAPI">
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueryDrivenAPI/GetData" message="tns:IQueryDrivenAPI_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueryDrivenAPI/GetDataResponse" message="tns:IQueryDrivenAPI_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRawData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueryDrivenAPI/GetAllRawData" message="tns:IQueryDrivenAPI_GetAllRawData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueryDrivenAPI/GetAllRawDataResponse" message="tns:IQueryDrivenAPI_GetAllRawData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKnowledgeItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueryDrivenAPI/GetKnowledgeItem" message="tns:IQueryDrivenAPI_GetKnowledgeItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueryDrivenAPI/GetKnowledgeItemResponse" message="tns:IQueryDrivenAPI_GetKnowledgeItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOntologyTree">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueryDrivenAPI/GetOntologyTree" message="tns:IQueryDrivenAPI_GetOntologyTree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueryDrivenAPI/GetOntologyTreeResponse" message="tns:IQueryDrivenAPI_GetOntologyTree_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceConcepts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueryDrivenAPI/GetReferenceConcepts" message="tns:IQueryDrivenAPI_GetReferenceConcepts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueryDrivenAPI/GetReferenceConceptsResponse" message="tns:IQueryDrivenAPI_GetReferenceConcepts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDemographicConcepts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueryDrivenAPI/GetDemographicConcepts" message="tns:IQueryDrivenAPI_GetDemographicConcepts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueryDrivenAPI/GetDemographicConceptsResponse" message="tns:IQueryDrivenAPI_GetDemographicConcepts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKB">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueryDrivenAPI/UpdateKB" message="tns:IQueryDrivenAPI_UpdateKB_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueryDrivenAPI/UpdateKBResponse" message="tns:IQueryDrivenAPI_UpdateKB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateAbstractionsInBatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueryDrivenAPI/CalculateAbstractionsInBatch" message="tns:IQueryDrivenAPI_CalculateAbstractionsInBatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueryDrivenAPI/CalculateAbstractionsInBatchResponse" message="tns:IQueryDrivenAPI_CalculateAbstractionsInBatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectPatients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueryDrivenAPI/SelectPatients" message="tns:IQueryDrivenAPI_SelectPatients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueryDrivenAPI/SelectPatientsResponse" message="tns:IQueryDrivenAPI_SelectPatients_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IQueryDrivenAPI" type="tns:IQueryDrivenAPI">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IQueryDrivenAPI/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRawData">
+      <soap:operation soapAction="http://tempuri.org/IQueryDrivenAPI/GetAllRawData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKnowledgeItem">
+      <soap:operation soapAction="http://tempuri.org/IQueryDrivenAPI/GetKnowledgeItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOntologyTree">
+      <soap:operation soapAction="http://tempuri.org/IQueryDrivenAPI/GetOntologyTree" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceConcepts">
+      <soap:operation soapAction="http://tempuri.org/IQueryDrivenAPI/GetReferenceConcepts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDemographicConcepts">
+      <soap:operation soapAction="http://tempuri.org/IQueryDrivenAPI/GetDemographicConcepts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKB">
+      <soap:operation soapAction="http://tempuri.org/IQueryDrivenAPI/UpdateKB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateAbstractionsInBatch">
+      <soap:operation soapAction="http://tempuri.org/IQueryDrivenAPI/CalculateAbstractionsInBatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectPatients">
+      <soap:operation soapAction="http://tempuri.org/IQueryDrivenAPI/SelectPatients" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="QueryDrivenAPI">
+    <wsdl:port name="BasicHttpBinding_IQueryDrivenAPI" binding="tns:BasicHttpBinding_IQueryDrivenAPI">
+      <soap:address location="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

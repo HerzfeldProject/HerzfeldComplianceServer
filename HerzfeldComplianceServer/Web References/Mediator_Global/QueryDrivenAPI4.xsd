@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NachmanBE" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NachmanBE" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://medinfo2.ise.bgu.ac.il/MediatorNewTAK/QueryDrivenAPI/QueryDrivenAPI.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="SelectPatientsQuery">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DemographicConstraints" nillable="true" type="tns:ArrayOfDemographicConstraint" />
+      <xs:element minOccurs="0" name="DemographicConstraintsRelations" type="tns:LogicRelations" />
+      <xs:element minOccurs="0" name="KBConstraints" nillable="true" type="tns:ArrayOfKBConstraint" />
+      <xs:element minOccurs="0" name="KBConstraintsRelations" type="tns:LogicRelations" />
+      <xs:element minOccurs="0" name="TemporalPairwiseConstraints" nillable="true" type="tns:ArrayOfPairwiseConstraint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SelectPatientsQuery" nillable="true" type="tns:SelectPatientsQuery" />
+  <xs:complexType name="ArrayOfDemographicConstraint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DemographicConstraint" nillable="true" type="tns:DemographicConstraint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDemographicConstraint" nillable="true" type="tns:ArrayOfDemographicConstraint" />
+  <xs:complexType name="DemographicConstraint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ValueConstraints" nillable="true" type="tns:ArrayOfnachmanValueConstraint" />
+      <xs:element minOccurs="0" name="ValueConstraintsRelations" type="tns:LogicRelations" />
+      <xs:element minOccurs="0" name="demographicConcept" nillable="true" type="tns:ConceptKnowledge" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DemographicConstraint" nillable="true" type="tns:DemographicConstraint" />
+  <xs:complexType name="ArrayOfnachmanValueConstraint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="nachmanValueConstraint" nillable="true" type="tns:nachmanValueConstraint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfnachmanValueConstraint" nillable="true" type="tns:ArrayOfnachmanValueConstraint" />
+  <xs:complexType name="nachmanValueConstraint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="logicOperator" type="tns:nachmanLogicOperators" />
+      <xs:element minOccurs="0" name="numericMaxValue" type="xs:double" />
+      <xs:element minOccurs="0" name="numericMinValue" type="xs:double" />
+      <xs:element minOccurs="0" name="symbolicMaxValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="symbolicMinValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="symbolicValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="nachmanValueConstraint" nillable="true" type="tns:nachmanValueConstraint" />
+  <xs:simpleType name="nachmanLogicOperators">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Equals" />
+      <xs:enumeration value="NotEquals" />
+      <xs:enumeration value="Greater" />
+      <xs:enumeration value="GreaterOrEquals" />
+      <xs:enumeration value="Smaller" />
+      <xs:enumeration value="SmallerOrEquals" />
+      <xs:enumeration value="Between" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="nachmanLogicOperators" nillable="true" type="tns:nachmanLogicOperators" />
+  <xs:simpleType name="LogicRelations">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AND" />
+      <xs:enumeration value="OR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LogicRelations" nillable="true" type="tns:LogicRelations" />
+  <xs:complexType name="ConceptKnowledge">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:long" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OutputType" type="tns:nachmanOutputTypes" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="States" nillable="true" type="q1:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConceptKnowledge" nillable="true" type="tns:ConceptKnowledge" />
+  <xs:simpleType name="nachmanOutputTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Numeric" />
+      <xs:enumeration value="Symbolic" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="nachmanOutputTypes" nillable="true" type="tns:nachmanOutputTypes" />
+  <xs:complexType name="ArrayOfKBConstraint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KBConstraint" nillable="true" type="tns:KBConstraint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKBConstraint" nillable="true" type="tns:ArrayOfKBConstraint" />
+  <xs:complexType name="KBConstraint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConceptKnowledge" nillable="true" type="tns:ConceptKnowledge" />
+      <xs:element minOccurs="0" name="TimeConstraint" nillable="true" type="tns:TimeConstraint" />
+      <xs:element minOccurs="0" name="ValueConstraint" nillable="true" type="tns:nachmanValueConstraint" />
+      <xs:element minOccurs="0" name="componentAlias" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="proportionConstraint" nillable="true" type="tns:ProportionConstraint" />
+      <xs:element minOccurs="0" name="statisticalConstraint" nillable="true" type="tns:StatisticalConstraint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KBConstraint" nillable="true" type="tns:KBConstraint" />
+  <xs:complexType name="TimeConstraint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DurationConstraitns" nillable="true" type="tns:DurationConstraint" />
+      <xs:element minOccurs="0" name="EarliestEndPoint" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EarliestStartPoint" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EndPoint" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EndTimeAsRange" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsAbsTime" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LatestEndPoint" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LatestStartPoint" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ReferenceBoundaryPoint" type="tns:nachmanBoundaryPointTypes" />
+      <xs:element minOccurs="0" name="ReferencePoint" nillable="true" type="tns:ConceptKnowledge" />
+      <xs:element minOccurs="0" name="ReferencePositionNumber" type="tns:PositionNumberTypes" />
+      <xs:element minOccurs="0" name="RelativeEarliestEndPoint" nillable="true" type="tns:NachmanTimeSpan" />
+      <xs:element minOccurs="0" name="RelativeEarliestStartPoint" nillable="true" type="tns:NachmanTimeSpan" />
+      <xs:element minOccurs="0" name="RelativeEndPoint" nillable="true" type="tns:NachmanTimeSpan" />
+      <xs:element minOccurs="0" name="RelativeLatestEndPoint" nillable="true" type="tns:NachmanTimeSpan" />
+      <xs:element minOccurs="0" name="RelativeLatestStartPoint" nillable="true" type="tns:NachmanTimeSpan" />
+      <xs:element minOccurs="0" name="RelativeStartPoint" nillable="true" type="tns:NachmanTimeSpan" />
+      <xs:element minOccurs="0" name="StartPoint" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="StartTimeAsRange" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TimeConstraint" nillable="true" type="tns:TimeConstraint" />
+  <xs:complexType name="DurationConstraint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DurationTimeUnit" type="tns:TimeGranularityUnits" />
+      <xs:element minOccurs="0" name="maxDuration" type="xs:double" />
+      <xs:element minOccurs="0" name="minDuration" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DurationConstraint" nillable="true" type="tns:DurationConstraint" />
+  <xs:simpleType name="TimeGranularityUnits">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Seconds" />
+      <xs:enumeration value="Minutes" />
+      <xs:enumeration value="Hours" />
+      <xs:enumeration value="Days" />
+      <xs:enumeration value="Weeks" />
+      <xs:enumeration value="Months" />
+      <xs:enumeration value="Years" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TimeGranularityUnits" nillable="true" type="tns:TimeGranularityUnits" />
+  <xs:simpleType name="nachmanBoundaryPointTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Start" />
+      <xs:enumeration value="End" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="nachmanBoundaryPointTypes" nillable="true" type="tns:nachmanBoundaryPointTypes" />
+  <xs:simpleType name="PositionNumberTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="First" />
+      <xs:enumeration value="Second" />
+      <xs:enumeration value="Third" />
+      <xs:enumeration value="Fourth" />
+      <xs:enumeration value="Fifth" />
+      <xs:enumeration value="Last" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PositionNumberTypes" nillable="true" type="tns:PositionNumberTypes" />
+  <xs:complexType name="NachmanTimeSpan">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="days" type="xs:int" />
+      <xs:element minOccurs="0" name="hours" type="xs:int" />
+      <xs:element minOccurs="0" name="minutes" type="xs:int" />
+      <xs:element minOccurs="0" name="month" type="xs:int" />
+      <xs:element minOccurs="0" name="seconds" type="xs:int" />
+      <xs:element minOccurs="0" name="years" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NachmanTimeSpan" nillable="true" type="tns:NachmanTimeSpan" />
+  <xs:complexType name="ProportionConstraint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="maxThreshold" type="xs:double" />
+      <xs:element minOccurs="0" name="minThreshold" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProportionConstraint" nillable="true" type="tns:ProportionConstraint" />
+  <xs:complexType name="StatisticalConstraint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="logicOperator" type="tns:nachmanLogicOperators" />
+      <xs:element minOccurs="0" name="populationDataDelegateFunction" type="tns:RawDataDelegateFunction" />
+      <xs:element minOccurs="0" name="subjectDataDelegateFunction" type="tns:RawDataDelegateFunction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StatisticalConstraint" nillable="true" type="tns:StatisticalConstraint" />
+  <xs:simpleType name="RawDataDelegateFunction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none" />
+      <xs:enumeration value="Min" />
+      <xs:enumeration value="Max" />
+      <xs:enumeration value="Avg" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RawDataDelegateFunction" nillable="true" type="tns:RawDataDelegateFunction" />
+  <xs:complexType name="ArrayOfPairwiseConstraint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PairwiseConstraint" nillable="true" type="tns:PairwiseConstraint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPairwiseConstraint" nillable="true" type="tns:ArrayOfPairwiseConstraint" />
+  <xs:complexType name="PairwiseConstraint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="End_End" nillable="true" type="tns:Gap" />
+      <xs:element minOccurs="0" name="End_Start" nillable="true" type="tns:Gap" />
+      <xs:element minOccurs="0" name="Relation" type="tns:Relations" />
+      <xs:element minOccurs="0" name="Start_End" nillable="true" type="tns:Gap" />
+      <xs:element minOccurs="0" name="Start_Start" nillable="true" type="tns:Gap" />
+      <xs:element minOccurs="0" name="boundaryPointA" type="tns:nachmanBoundaryPointTypes" />
+      <xs:element minOccurs="0" name="boundaryPointB" type="tns:nachmanBoundaryPointTypes" />
+      <xs:element minOccurs="0" name="componentAliasA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="componentAliasB" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PairwiseConstraint" nillable="true" type="tns:PairwiseConstraint" />
+  <xs:complexType name="Gap">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Operator" type="tns:nachmanLogicOperators" />
+      <xs:element minOccurs="0" name="maxDifference" type="xs:int" />
+      <xs:element minOccurs="0" name="minDifference" type="xs:int" />
+      <xs:element minOccurs="0" name="timeUnit" type="tns:TimeGranularityUnits" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Gap" nillable="true" type="tns:Gap" />
+  <xs:simpleType name="Relations">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="After" />
+      <xs:enumeration value="Before" />
+      <xs:enumeration value="Equals" />
+      <xs:enumeration value="Meet" />
+      <xs:enumeration value="Overlaps" />
+      <xs:enumeration value="Starts" />
+      <xs:enumeration value="Finishes" />
+      <xs:enumeration value="Containts" />
+      <xs:enumeration value="Custom" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Relations" nillable="true" type="tns:Relations" />
+</xs:schema>
