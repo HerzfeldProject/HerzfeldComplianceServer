@@ -8,5 +8,6 @@ namespace HerzfeldComplianceServer.Models
     public class StageScores
     {
         public double totalStageScores { get; set; }
+        public StageScores initByStage(stage stage);
     }
 }

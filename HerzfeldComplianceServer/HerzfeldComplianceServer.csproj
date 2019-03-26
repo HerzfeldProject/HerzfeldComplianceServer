@@ -181,8 +181,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AdmissionScores.cs" />
+    <Compile Include="Models\PatternConsts.cs" />
+    <Compile Include="Models\DataInstance.cs" />
     <Compile Include="Models\FollowupScores.cs" />
     <Compile Include="Models\PreventionScores.cs" />
+    <Compile Include="Models\Request.cs" />
     <Compile Include="Models\StageScores.cs" />
     <Compile Include="Models\TimeBasedDataRequest.cs" />
     <Compile Include="Models\Credentials.cs" />

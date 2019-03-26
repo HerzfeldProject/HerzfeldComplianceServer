@@ -17,5 +17,20 @@ namespace HerzfeldComplianceServer.Models
         public double pressureDiffusion { get; set; } //שימוש באמצעים לפיזור לחץ
         public double dietConsultation { get; set; } //ייעוץ דיאטנית
         public double oilTreatment { get; set; } //טיפול בשימון
+
+        public void calculateTotalStageScore()
+        {
+            totalStageScores = skin * PatternConsts.PREVENTION_SKIN_WEIGHT +
+                               pain * PatternConsts.PREVENTION_PAIN_WEIGHT +
+                               skinInstruction * PatternConsts.PREVENTION_SKIN_INSTRUCTION_WEIGHT +
+                               guidance * PatternConsts.PREVENTION_GUIDANCE_WEIGHT +
+                               norton * PatternConsts.PREVENTION_NORTON_WEIGHT +
+                               changePosition * PatternConsts.PREVENTION_CHANGE_POSITION_WEIGHT +
+                               angle * PatternConsts.PREVENTION_ANGLE_WEIGHT +
+                               pressureDiffusion * PatternConsts.PREVENTION_PRESSURE_DIFFUSION_WEIGHT +
+                               dietConsultation * PatternConsts.PREVENTION_DIET_CONSULTATION_WEIGHT +
+                               oilTreatment * PatternConsts.PREVENTION_OIL_TREATMENT_WEIGHT;
+                               
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace HerzfeldComplianceServer.Models
 {
-    public class PatientBaseDataRequest
+    public class PatientBaseDataRequest : Request
     {
         public List<string> patientsList { get; set; }
         public DateTime startDate { get; set; }

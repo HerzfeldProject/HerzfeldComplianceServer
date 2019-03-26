@@ -12,6 +12,14 @@ namespace HerzfeldComplianceServer.Models
         public double pain { get; set; } //אמדן כאב
         public double norton { get; set; } //אמדן נורטון
         public double skin { get; set; } //אמדן עור
-        public double ulcerDiagnosis { get; set; } //אבחנת פצע לחץ
+
+        public void calculateTotalStageScore()
+        {
+            totalStageScores = albumin * PatternConsts.ADMISSION_ALBUMIN_WEIGHT +
+                               nutrition * PatternConsts.ADMISSION_NUTRITION_WEIGHT +
+                               pain * PatternConsts.ADMISSION_PAIN_WEIGHT +
+                               norton * PatternConsts.ADMISSION_NORTON_WEIGHT +
+                               skin * PatternConsts.ADMISSION_SKIN_WEIGHT; 
+        }
     }
 }
